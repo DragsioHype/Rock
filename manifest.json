@@ -1,0 +1,12 @@
+{
+    "manifest_version": 2,
+    "version": "0.0.1",
+    "name": "Rock",
+    "description": "Rock - Rock",
+    "author": "Rockerson",
+    "browser_action": {
+   	 "default_title": "Rock",
+   	 "default_popup": "index.html",
+   	 "default_icon": "icon.png"
+    }
+}

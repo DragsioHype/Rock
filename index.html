@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>Rock</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <link rel='stylesheet' type='text/css' media='screen' href='main.css'>
+    <script src='jquery.js'></script>
+</head>
+<body>
+    <div id="container">
+        <div id="rock-set">
+            <fieldset>
+                <legend>Convênio<span class="alert"> *Digite explicitamente o nome do convênio</span></legend>
+                <input type="text" name="convenio" id="convenio" class="input-champ">
+                <button onclick="guardarConvenio()">Salvar</button>
+                <button onclick="apagarConvenio()">Apagar</button>
+                <input type="text" name="convenio" id="ddlConvenio" class="input-champ">
+            </fieldset>
+        </div>
+    </div>
+    <script>
+        function convenioUpdate() {
+            $('#ddlConvenio').val($('#convenio').val());
+        };
+        function apagarConvenio() {
+            localStorage.removeItem('convenio');
+            $('#convenio').val('');
+        };
+        function guardarConvenio() {
+            if(localStorage.getItem('convenio') != null) {
+                localStorage.setItem('convenio', $('#convenio').val());
+            }
+            else {
+                localStorage.removeItem('convenio');
+                localStorage.setItem('convenio', $('#convenio').val());
+            }
+            convenioUpdate();
+        }
+        
+    </script>
+</body>
+</html>
