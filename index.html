@@ -5,7 +5,7 @@
     <meta http-equiv='X-UA-Compatible' content='IE=edge'>
     <title>Rock</title>
     <meta name='viewport' content='width=device-width, initial-scale=1'>
-    <link rel='stylesheet' type='text/css' media='screen' href='main.css'>
+    <!-- <link rel='stylesheet' type='text/css' media='screen' href='main.css'> -->
     <script src='jquery.js'></script>
 </head>
 <body>
@@ -17,6 +17,11 @@
                 <button onclick="guardarConvenio()">Salvar</button>
                 <button onclick="apagarConvenio()">Apagar</button>
                 <input type="text" name="convenio" id="ddlConvenio" class="input-champ">
+            </fieldset>
+            <fieldset>
+                <legend>Hora<span class="alert"> *Digite explicitamente a hora</span></legend>
+                <input type="text" name="hora" id="hora" class="input-champ">
+                <button onclick="guardarConvenio()">Salvar</button>
             </fieldset>
         </div>
     </div>
@@ -38,7 +43,10 @@
             }
             convenioUpdate();
         }
-        
+        $( window ).on( "load", function() {
+            $('#convenio').val(localStorage.getItem('convenio'));
+            convenioUpdate();
+        });
     </script>
 </body>
 </html>
